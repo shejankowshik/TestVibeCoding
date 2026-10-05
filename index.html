@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Service Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div>
+            <h1 id="appTitle">Student Service Dashboard</h1>
+            <p id="appSubtitle">Manage student service requests easily</p>
+        </div>
+
+        <button id="languageBtn" class="language-btn">বাংলা</button>
+    </header>
+
+    <main class="container">
+
+        <!-- Statistics -->
+        <section class="stats">
+            <div class="stat-card">
+                <span id="totalLabel">Total Requests</span>
+                <strong id="totalRequests">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span id="pendingLabel">Pending</span>
+                <strong id="pendingRequests">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span id="processingLabel">Processing</span>
+                <strong id="processingRequests">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span id="completedLabel">Completed</span>
+                <strong id="completedRequests">0</strong>
+            </div>
+        </section>
+
+        <!-- Add Request -->
+        <section class="card">
+            <h2 id="formTitle">Add New Request</h2>
+
+            <form id="requestForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label id="nameLabel" for="studentName">
+                            Student Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter student name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label id="idLabel" for="studentId">
+                            Student ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentId"
+                            placeholder="Enter student ID"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label id="typeLabel" for="requestType">
+                            Request Type
+                        </label>
+
+                        <select id="requestType" required>
+                            <option value="">Select type</option>
+                            <option value="Certificate">Certificate</option>
+                            <option value="Transcript">Transcript</option>
+                            <option value="ID Card">ID Card</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label id="priorityLabel" for="priority">
+                            Priority
+                        </label>
+
+                        <select id="priority" required>
+                            <option value="">Select priority</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label id="descriptionLabel" for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Describe the request"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="primary-btn" id="addBtn">
+                    Add Request
+                </button>
+
+            </form>
+        </section>
+
+        <!-- Request List -->
+        <section class="card">
+
+            <div class="list-header">
+                <h2 id="listTitle">All Requests</h2>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by name or ID..."
+                >
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th id="thName">Name</th>
+                            <th id="thId">ID</th>
+                            <th id="thType">Type</th>
+                            <th id="thPriority">Priority</th>
+                            <th id="thStatus">Status</th>
+                            <th id="thAction">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="requestTableBody"></tbody>
+
+                </table>
+
+            </div>
+
+            <p id="emptyMessage" class="empty-message">
+                No requests found.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
